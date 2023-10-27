@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="business_name_suggestion_tool" content="Javascript Business Name Suggestion Tool">
+  <title>Javascript Business Name Suggestion Tool</title>
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">Javascript Business Name Suggestion Tool</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Tools for suggesting business names, organizations. Developed on pure javascript platform, with compact features and easy integration with any platform.</p>
+      <label class="form-label">Let's see how it works:</label>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <form class="card p-2" id="form">
+          <div class="input-group">
+            <input type="text" id="input" class="form-control" placeholder="Test" value="Test">
+            <button type="submit" class="btn btn-primary">Suggest!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id='results' class='results-list'>
+    </div>
+    <div class="b-example-divider"></div>
+  </div>
+
+  <div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <h2 class="display-5 fw-bold">Quick start</h2>
+      <div class="container-fluid py-5">
+        <h2>1. Download</h2>
+        <p class="col-md-12 fs-4">
+          You have downloaded the Javascript Business Name Suggestion Tool content.zip file. When you
+          extract the contents you will find:
+        </p>
+        <pre tabindex="0" class="chroma">
+                <code class="language-text" data-lang="text">
+                    <span class="line"><span class="cl">business-name-suggestion-tool/</span></span>
+                    <span class="line"><span class="cl">├── index.html</span></span>
+                    <span class="line"><span class="cl">├── css/</span></span>
+                    <span class="line"><span class="cl">│   ├── style.css/</span></span>
+                    <span class="line"><span class="cl">├── js/</span></span>
+                    <span class="line"><span class="cl">│   └──namesuggestion.js</span></span>
+                    <span class="line"><span class="cl">│   └──main.js</span></span>
+                </code>
+            </pre>
+      </div>
+
+      <div class="container-fluid py-5">
+        <h2>2. Include JS</h2>
+        <p class="col-md-12 fs-4">
+          Place the <code>&lt;script&gt;</code> tag for our JavaScript bundle before the closing
+          <code>&lt;/body&gt;</code>.
+        </p>
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <p> &lt;script src="./js/namesuggestion.js"&gt;&lt;/script&gt;</p>
+        </div>
+      </div>
+
+
+      <div class="container-fluid py-5">
+        <h2>3. Insert html</h2>
+        <p class="col-md-12 fs-4">
+          In body tag insert html:
+        </p>
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <p>&lt;div id="results" &gt;&lt;/div&gt;</p>
+        </div>
+      </div>
+
+      <div class="container-fluid py-5">
+        <h2>4. Generate list of suggested names from a phrase</h2>
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <p>var items = StartupNameGenerator(input);</p>
+        </div>
+      </div>
+      
+      <div class="container-fluid py-5">
+        <h2>5. Example</h2>
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <p>const form = document.getElementById('form'); <br>
+            form.addEventListener('submit', (event) => {<br>
+                event.preventDefault();<br>
+                let input = document.getElementById("input").value;<br>
+                var items = StartupNameGenerator(input);<br>
+                let results_elem = document.getElementById("results");<br>
+                results_elem.innerHTML = "";<br>
+            
+                items.forEach((item, idx) => {<br>
+                    const item_elem = document.createElement("a");<br>
+                    item_elem.className = "result-item";<br>
+                    item_elem.target = "_blank";<br>
+                    item_elem.href = `#?key=${item.toLowerCase()}`;<br>
+                    item_elem.innerHTML = `&lt;span&gt;${item}&lt;/span&gt;`;<br>
+                    results_elem.appendChild(item_elem);<br>
+                });<br>
+            });</p>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      © Javascript Business Name Suggestion Tool
+    </footer>
+  </div>
+  <script src="./js/namesuggestion.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
